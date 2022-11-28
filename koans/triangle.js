@@ -11,8 +11,22 @@ It returns:
 The tests for this method can be found in
   AboutTriangleProject.js
 */
-
+typeOfTriangle = "";
 
 function triangle(a, b, c) {
+  
+  if (a == b || b == c || c == a) {
+    typeOfTriangle = "isosceles";
+  }
+  
+  if(a == b && a == c && b == c){
+    typeOfTriangle = 'equilateral';
+  }
+  
+  if (a !== b && a !== c && b !== c) {
+    typeOfTriangle = "scalene";
+  }
 
+  return typeOfTriangle;
 }
+
