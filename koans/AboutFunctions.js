@@ -6,7 +6,7 @@ describe("About Functions", function() {
       return a + b;
     }
 
-    expect(add(1, 2)).toEqual(FILL_ME_IN);
+    expect(add(1, 2)).toEqual(3);
   });
 
   it("should know internal variables override outer variables", function () {
@@ -21,9 +21,9 @@ describe("About Functions", function() {
       return message;
     }
 
-    expect(getMessage()).toEqual(FILL_ME_IN);
-    expect(overrideMessage()).toEqual(FILL_ME_IN);
-    expect(message).toEqual(FILL_ME_IN);
+    expect(getMessage()).toEqual('Outer');
+    expect(overrideMessage()).toEqual('Inner');
+    expect(message).toEqual('Outer');
   });
 
   it("should have lexical scoping", function () {
@@ -35,7 +35,7 @@ describe("About Functions", function() {
       }
       return childfunction();
     }
-    expect(parentfunction()).toEqual(FILL_ME_IN);
+    expect(parentfunction()).toEqual('local');
   });
 
   it("should use lexical scoping to synthesise functions", function () {
@@ -52,7 +52,7 @@ describe("About Functions", function() {
     var mysteryFunction3 = makeMysteryFunction(3);
     var mysteryFunction5 = makeMysteryFunction(5);
 
-    expect(mysteryFunction3(10) + mysteryFunction5(5)).toEqual(FILL_ME_IN);
+    expect(mysteryFunction3(10) + mysteryFunction5(5)).toEqual(23);
   });
 
   it("should allow extra function arguments", function () {
@@ -61,13 +61,13 @@ describe("About Functions", function() {
       return firstArg;
     }
 
-    expect(returnFirstArg("first", "second", "third")).toEqual(FILL_ME_IN);
+    expect(returnFirstArg("first", "second", "third")).toEqual('first');
 
     function returnSecondArg(firstArg, secondArg) {
       return secondArg;
     }
 
-    expect(returnSecondArg("only give first arg")).toEqual(FILL_ME_IN);
+    expect(returnSecondArg("only give first arg")).toEqual(undefined);
 
     function returnAllArgs() {
       var argsArray = [];
@@ -77,7 +77,7 @@ describe("About Functions", function() {
       return argsArray.join(",");
     }
 
-    expect(returnAllArgs("first", "second", "third")).toEqual(FILL_ME_IN);
+    expect(returnAllArgs("first", "second", "third")).toEqual("first,second,third");
   });
 
   it("should pass functions as values", function () {
@@ -91,10 +91,10 @@ describe("About Functions", function() {
     };
 
     var praiseSinger = { givePraise: appendRules };
-    expect(praiseSinger.givePraise("John")).toEqual(FILL_ME_IN);
+    expect(praiseSinger.givePraise("John")).toEqual('John rules!');
 
     praiseSinger.givePraise = appendDoubleRules;
-    expect(praiseSinger.givePraise("Mary")).toEqual(FILL_ME_IN);
+    expect(praiseSinger.givePraise("Mary")).toEqual('Mary totally rules!');
 
   });
 });
