@@ -4,7 +4,7 @@ describe("About Mutability", function() {
     var aPerson = {firstname: "John", lastname: "Smith" };
     aPerson.firstname = "Alan";
 
-    expect(aPerson.firstname).toEqual(FILL_ME_IN);
+    expect(aPerson.firstname).toEqual('Alan');
   });
 
   it("should understand that constructed properties are public and mutable", function () {
@@ -16,7 +16,7 @@ describe("About Mutability", function() {
     var aPerson = new Person ("John", "Smith");
     aPerson.firstname = "Alan";
 
-    expect(aPerson.firstname).toEqual(FILL_ME_IN);
+    expect(aPerson.firstname).toEqual('Alan');
   });
 
   it("should know that variables inside a constructor and constructor args are private", function () {
@@ -34,15 +34,15 @@ describe("About Mutability", function() {
     aPerson.lastname = "Andrews";
     aPerson.fullName = "Penny Andrews";
 
-    expect(aPerson.getFirstName()).toEqual(FILL_ME_IN);
-    expect(aPerson.getLastName()).toEqual(FILL_ME_IN);
-    expect(aPerson.getFullName()).toEqual(FILL_ME_IN);
+    expect(aPerson.getFirstName()).toEqual('John');
+    expect(aPerson.getLastName()).toEqual('Smith');
+    expect(aPerson.getFullName()).toEqual('John Smith');
 
     aPerson.getFullName = function () {
       return aPerson.lastname + ", " + aPerson.firstname;
     };
 
-    expect(aPerson.getFullName()).toEqual(FILL_ME_IN);
+    expect(aPerson.getFullName()).toEqual("Andrews, Penny");
   });
 
 });
